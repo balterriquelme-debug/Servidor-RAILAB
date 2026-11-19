@@ -1,0 +1,13 @@
+# RAILAB-SERVER(v1)
+
+Sistema distribuido conectado por **Tailscale** para conversar con la IA del servidor,
+reconocer personas mediante webcam (códigos QR o símbolos), asociarles memoria y
+controlar el movimiento/mirada del robot **Innov**.
+
+## Partes del sistema
+- **Tailscale (Red privada):** Une el servidor, el nodo de voz y el robot Innov por SSH/red local segura.
+- **server/ (Servidor central):** Ejecuta la IA, gestiona la memoria vinculada al ID de cada persona y coordina las respuestas.
+- **voice-node/ (Nodo de voz):** Recibe audio, transcribe de voz a texto (STT) y sintetiza respuestas de texto a voz (TTS).
+- **innov-robot/ (Robot Innov):** Captura imagen desde la webcam para leer QR/símbolos e identificar a la persona, y ejecuta movimientos/mirada.
+- **data/ (Almacén inicial):** Guarda la memoria asociada a cada identificador detectado por la cámara.
+- **docs/ (Documentación):** Define la arquitectura y el formato de mensajes entre nodos.
